@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="card">
+    <view class="stat-title">📊 学习统计</view>
+    
+    <view class="stat-row">
+      <view class="stat-item">
+        <text class="stat-num">{{totalQuestions}}</text>
+        <text class="stat-label">总题数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{wrongCount}}</text>
+        <text class="stat-label">错题数</text>
+      </view>
+    </view>
+    
+    <view class="stat-row">
+      <view class="stat-item">
+        <text class="stat-num">{{accuracy}}%</text>
+        <text class="stat-label">正确率</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="card">
+    <view class="stat-title">📚 知识点分布</view>
+    <view class="subject-item" wx:for="{{subjects}}" wx:key="name">
+      <text class="subject-name">{{item.name}}</text>
+      <text class="subject-count">{{item.count}}题</text>
+    </view>
+  </view>
+</view>

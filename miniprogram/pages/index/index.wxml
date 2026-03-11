@@ -1,0 +1,49 @@
+<view class="container">
+  <!-- 顶部卡片 -->
+  <view class="card">
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-num">{{totalQuestions}}</text>
+        <text class="stat-label">总题数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{wrongCount}}</text>
+        <text class="stat-label">错题数</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 题目卡片 -->
+  <view class="card question-card" wx:if="{{currentQuestion}}">
+    <view class="question-tag">{{currentQuestion.subject}}</view>
+    <view class="question-text">{{currentQuestion.question}}</view>
+    
+    <view class="options" wx:if="{{showAnswer}}">
+      <view class="answer-text">答案：{{currentQuestion.answer}}</view>
+      <view class="explain-text" wx:if="{{currentQuestion.explain}}">
+        解析：{{currentQuestion.explain}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 按钮组 -->
+  <view class="btn-group">
+    <button class="btn-primary btn-block" bindtap="nextQuestion">
+      🎲 随机抽题
+    </button>
+    <button class="btn-secondary btn-block mt-20" bindtap="goToAdd">
+      ➕ 添加错题
+    </button>
+    <button class="btn-secondary btn-block mt-20" bindtap="gotoPaper">
+      📄 生成试卷
+    </button>
+    <button class="btn-secondary btn-block mt-20" bindtap="gotoWrong">
+      📖 错题本
+    </button>
+  </view>
+
+  <!-- 显示答案按钮 -->
+  <button class="btn-outline btn-block mt-20" bindtap="toggleAnswer" wx:if="{{currentQuestion && !showAnswer}}">
+    👁️ 显示答案
+  </button>
+</view>

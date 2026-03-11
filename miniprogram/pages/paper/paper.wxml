@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="card">
+    <view class="empty" wx:if="{{questions.length === 0}}">
+      <text>📝 暂无试卷</text>
+      <text class="tip">先生成一套吧</text>
+    </view>
+    
+    <view wx:else>
+      <view class="paper-info">
+        <text class="title">{{paperTitle}}</text>
+        <text class="date">{{date}}</text>
+      </view>
+      
+      <view class="question-list">
+        <view class="question-item" wx:for="{{questions}}" wx:key="id">
+          <text class="q-num">{{index + 1}}.</text>
+          <text class="q-text">{{item.question}}</text>
+        </view>
+      </view>
+      
+      <button class="btn-primary btn-block mt-20" bindtap="showAnswers">
+        👁️ 显示答案
+      </button>
+      
+      <view class="answers" wx:if="{{showAnswer}}">
+        <view class="answer-item" wx:for="{{answers}}" wx:key="num">
+          <text>{{item.num}}. {{item.answer}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <button class="btn-primary btn-block mt-20" bindtap="generatePaper">
+    🎲 生成新试卷
+  </button>
+</view>

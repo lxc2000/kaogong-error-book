@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="card">
+    <view class="empty" wx:if="{{wrongQuestions.length === 0}}">
+      <text>📖 错题本为空</text>
+      <text class="tip">继续加油！</text>
+    </view>
+    
+    <view class="question-list" wx:else>
+      <view class="question-item" wx:for="{{wrongQuestions}}" wx:key="id">
+        <view class="q-tag">{{item.subject}}</view>
+        <view class="q-text">{{item.question}}</view>
+        <view class="q-answer">答案：{{item.answer}}</view>
+      </view>
+    </view>
+  </view>
+</view>
